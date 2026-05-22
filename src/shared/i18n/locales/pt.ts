@@ -79,10 +79,14 @@ export const pt = {
       createProduct: {
         title: 'Página de criação de produto',
         description: 'Rota preparada para imagem, descrição por IA, campos, criar mais, criação e cancelamento.',
+        imageDrop: 'Largue uma imagem do produto aqui ou clique para carregar',
+        create: 'Criar produto',
+        createMore: 'Criar outro produto depois de guardar',
       },
       product: {
         title: 'Página do produto',
         description: 'Rota preparada para foto, nome, preço, quantidade, descrição editáveis e remoção.',
+        notFound: 'Produto não encontrado',
       },
       orderCatalogue: {
         title: 'Catálogo de encomendas',

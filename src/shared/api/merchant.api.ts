@@ -44,13 +44,32 @@ export const merchantApi = {
 
     return apiClient.get<Product[]>('/merchant/products').then(response => response.data)
   },
-  createProduct(payload: ProductFormValues) {
+  getProduct(shopId: string, productId: string) {
+    return apiClient
+      .get<Product | null>(`/merchant/shops/${shopId}/products/${productId}`)
+      .then(response => response.data)
+  },
+  createProduct(payload: ProductFormValues, shopId?: string) {
+    if (shopId) {
+      return apiClient.post<Product>(`/merchant/shops/${shopId}/products`, payload).then(response => response.data)
+    }
+
     return apiClient.post<Product>('/merchant/products', payload).then(response => response.data)
   },
-  updateProduct(productId: string, payload: ProductFormValues) {
+  updateProduct(productId: string, payload: ProductFormValues, shopId?: string) {
+    if (shopId) {
+      return apiClient
+        .put<Product>(`/merchant/shops/${shopId}/products/${productId}`, payload)
+        .then(response => response.data)
+    }
+
     return apiClient.put<Product>(`/merchant/products/${productId}`, payload).then(response => response.data)
   },
-  deleteProduct(productId: string) {
+  deleteProduct(productId: string, shopId?: string) {
+    if (shopId) {
+      return apiClient.delete<void>(`/merchant/shops/${shopId}/products/${productId}`).then(response => response.data)
+    }
+
     return apiClient.delete<void>(`/merchant/products/${productId}`).then(response => response.data)
   },
   getOrders() {

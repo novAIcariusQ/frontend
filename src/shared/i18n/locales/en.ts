@@ -79,10 +79,14 @@ export const en = {
       createProduct: {
         title: 'Product creation page',
         description: 'Route prepared for image drop, AI description, fields, create more, create, and cancel actions.',
+        imageDrop: 'Drop a product image here or click to upload',
+        create: 'Create product',
+        createMore: 'Create another product after saving',
       },
       product: {
         title: 'Product page',
         description: 'Route prepared for editable product picture, name, cost, quantity, description, and deletion.',
+        notFound: 'Product was not found',
       },
       orderCatalogue: {
         title: 'Order catalogue',

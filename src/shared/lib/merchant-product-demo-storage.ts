@@ -54,6 +54,20 @@ export function getDemoMerchantShopProducts(shopId: string) {
   return getDemoMerchantProducts().filter(product => product.shopId === shopId)
 }
 
+export function getDemoMerchantProduct(shopId: string, productId: string) {
+  return getDemoMerchantShopProducts(shopId).find(product => product.id === productId) ?? null
+}
+
+export function upsertDemoMerchantProduct(product: Product) {
+  const existingProducts = getDemoMerchantProducts()
+  const nextProducts = existingProducts.some(item => item.id === product.id)
+    ? existingProducts.map(item => (item.id === product.id ? product : item))
+    : [product, ...existingProducts]
+
+  localStorage.setItem(DEMO_PRODUCTS_KEY, JSON.stringify(nextProducts))
+  return nextProducts
+}
+
 export function upsertDemoMerchantProducts(products: Product[]) {
   const existingProducts = getDemoMerchantProducts()
   const nextProducts = [
@@ -61,6 +75,12 @@ export function upsertDemoMerchantProducts(products: Product[]) {
     ...existingProducts.filter(product => !products.some(item => item.id === product.id)),
   ]
 
+  localStorage.setItem(DEMO_PRODUCTS_KEY, JSON.stringify(nextProducts))
+  return nextProducts
+}
+
+export function deleteDemoMerchantProduct(productId: string) {
+  const nextProducts = getDemoMerchantProducts().filter(product => product.id !== productId)
   localStorage.setItem(DEMO_PRODUCTS_KEY, JSON.stringify(nextProducts))
   return nextProducts
 }
