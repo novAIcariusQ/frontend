@@ -60,6 +60,7 @@ const demoOrders: Order[] = [
     customerName: 'Maria Silva',
     customerEmail: 'maria@example.com',
     totalAmount: 10.7,
+    totalQuantity: 3,
     status: 'paid',
     qrCodeData: 'order:c7ed1d87-58c1-4f76-8c71-97720f22fd38',
     createdAt: new Date().toISOString(),
@@ -122,7 +123,7 @@ export function MerchantPage() {
 
         setShop(apiShop ?? demoShop)
         setProducts(Array.isArray(apiProducts) ? apiProducts : apiProducts.items)
-        setOrders(apiOrders)
+        setOrders(Array.isArray(apiOrders) ? apiOrders : apiOrders.items)
       } catch {
         if (!isMounted) return
 

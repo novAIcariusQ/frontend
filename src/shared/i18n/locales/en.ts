@@ -91,10 +91,12 @@ export const en = {
       orderCatalogue: {
         title: 'Order catalogue',
         description: 'Route prepared for order cards with id, date, total quantity, and pagination.',
+        search: 'Search orders',
       },
       order: {
         title: 'Order page',
         description: 'Route prepared for ordered products, quantities, final price, status actions, and contact info.',
+        notFound: 'Order was not found',
       },
       settings: {
         title: 'Settings page',
@@ -166,6 +168,11 @@ export const en = {
       total: 'Total',
       status: 'Status',
       updateStatus: 'Update status',
+      accept: 'Accept',
+      cancel: 'Cancel order',
+      done: 'Done',
+      contact: 'Contact info',
+      phone: 'Phone',
       createdAt: 'Created',
       qr: 'QR data',
       qrTitle: 'Pickup verification',

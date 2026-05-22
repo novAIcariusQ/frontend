@@ -91,10 +91,12 @@ export const pt = {
       orderCatalogue: {
         title: 'Catálogo de encomendas',
         description: 'Rota preparada para cartões de encomendas com id, data, quantidade total e paginação.',
+        search: 'Pesquisar encomendas',
       },
       order: {
         title: 'Página da encomenda',
         description: 'Rota preparada para produtos encomendados, quantidades, preço final, estado e contacto.',
+        notFound: 'Encomenda não encontrada',
       },
       settings: {
         title: 'Página de definições',
@@ -166,6 +168,11 @@ export const pt = {
       total: 'Total',
       status: 'Estado',
       updateStatus: 'Atualizar estado',
+      accept: 'Aceitar',
+      cancel: 'Cancelar encomenda',
+      done: 'Concluir',
+      contact: 'Contacto',
+      phone: 'Telefone',
       createdAt: 'Criada em',
       qr: 'Dados QR',
       qrTitle: 'Verificação de recolha',

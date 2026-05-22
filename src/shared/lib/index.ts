@@ -9,4 +9,12 @@ export {
   upsertDemoMerchantProduct,
   upsertDemoMerchantProducts,
 } from './merchant-product-demo-storage'
+export {
+  fallbackOrders,
+  getDemoMerchantOrder,
+  getDemoMerchantOrders,
+  getDemoMerchantShopOrders,
+  updateDemoMerchantOrderStatus,
+  upsertDemoMerchantOrder,
+} from './merchant-order-demo-storage'
 export { tokenStorage } from './token-storage'

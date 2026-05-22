@@ -1,4 +1,4 @@
-import type { Order } from '@entities/order'
+import type { Order, OrderStatus } from '@entities/order'
 import type { Product, ProductFormValues } from '@entities/product'
 import type { Shop, ShopFormValues } from '@entities/shop'
 import { apiClient } from './base'
@@ -72,7 +72,21 @@ export const merchantApi = {
 
     return apiClient.delete<void>(`/merchant/products/${productId}`).then(response => response.data)
   },
-  getOrders() {
+  getOrders(shopId?: string, params?: MerchantListParams) {
+    if (shopId) {
+      return apiClient
+        .get<Order[] | MerchantListResponse<Order>>(`/merchant/shops/${shopId}/orders`, { params })
+        .then(response => response.data)
+    }
+
     return apiClient.get<Order[]>('/merchant/orders').then(response => response.data)
+  },
+  getOrder(shopId: string, orderId: string) {
+    return apiClient.get<Order | null>(`/merchant/shops/${shopId}/orders/${orderId}`).then(response => response.data)
+  },
+  updateOrderStatus(shopId: string, orderId: string, status: OrderStatus) {
+    return apiClient
+      .put<Order>(`/merchant/shops/${shopId}/orders/${orderId}`, { status })
+      .then(response => response.data)
   },
 }

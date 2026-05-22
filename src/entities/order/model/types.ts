@@ -5,6 +5,7 @@ export type OrderItem = {
   orderId: string
   productId?: string | null
   productTitle: string
+  productLogo?: string | null
   quantity: number
   priceAtTime: number
 }
@@ -18,6 +19,7 @@ export type Order = {
   customerEmail?: string | null
   customerPhone?: string | null
   totalAmount: number
+  totalQuantity: number
   status: OrderStatus
   qrCodeData?: string | null
   createdAt: string
