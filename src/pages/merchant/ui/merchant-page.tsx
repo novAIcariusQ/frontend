@@ -26,6 +26,7 @@ const demoProducts: Product[] = [
     title: 'Organic onions',
     description: 'Small batch from a nearby farm, packed in 1 kg bags.',
     price: 2.4,
+    quantity: 32,
     photoUrl: null,
     isAvailable: true,
   },
@@ -35,6 +36,7 @@ const demoProducts: Product[] = [
     title: 'Goat cheese',
     description: 'Soft cheese with limited daily availability.',
     price: 5.9,
+    quantity: 8,
     photoUrl: null,
     isAvailable: true,
   },
@@ -44,6 +46,7 @@ const demoProducts: Product[] = [
     title: 'Fig jam',
     description: 'Seasonal jar, ideal for pickup bundles.',
     price: 4.2,
+    quantity: 0,
     photoUrl: null,
     isAvailable: false,
   },
@@ -118,7 +121,7 @@ export function MerchantPage() {
         if (!isMounted) return
 
         setShop(apiShop ?? demoShop)
-        setProducts(apiProducts)
+        setProducts(Array.isArray(apiProducts) ? apiProducts : apiProducts.items)
         setOrders(apiOrders)
       } catch {
         if (!isMounted) return
@@ -210,6 +213,7 @@ export function MerchantPage() {
       title: values.title,
       description: values.description,
       price: values.price,
+      quantity: values.quantity,
       photoUrl: values.photoUrl || null,
       isAvailable: values.isAvailable,
     }
@@ -278,6 +282,7 @@ export function MerchantPage() {
           title: item.title ?? '',
           description: item.description ?? '',
           price: item.price ?? 0,
+          quantity: item.quantity ?? 0,
           photoUrl: item.photoUrl ?? null,
           isAvailable: item.isAvailable ?? true,
         }))
@@ -305,6 +310,7 @@ export function MerchantPage() {
           title: description.title,
           description: description.description,
           price: 0,
+          quantity: 0,
           photoUrl: URL.createObjectURL(file),
           isAvailable: true,
         },
@@ -319,6 +325,7 @@ export function MerchantPage() {
           title: file.name.replace(/\.[^.]+$/, ''),
           description: t('merchant.imports.aiReady'),
           price: 0,
+          quantity: 0,
           photoUrl: URL.createObjectURL(file),
           isAvailable: true,
         },

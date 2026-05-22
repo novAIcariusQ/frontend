@@ -74,6 +74,7 @@ export const pt = {
         importJson: 'Importar JSON',
         importXlsx: 'Importar XLSX',
         createProduct: 'Criar produto',
+        search: 'Pesquisar produtos',
       },
       createProduct: {
         title: 'Página de criação de produto',
@@ -135,6 +136,7 @@ export const pt = {
       product: 'Produto',
       description: 'Descrição',
       price: 'Preço',
+      quantity: 'Quantidade',
       availability: 'Disponibilidade',
       actions: 'Ações',
       edit: 'Editar',
@@ -146,6 +148,7 @@ export const pt = {
       titleField: 'Título',
       descriptionField: 'Descrição',
       priceField: 'Preço',
+      quantityField: 'Quantidade',
       photoUrlField: 'URL da foto',
       uploadPhoto: 'Carregar foto',
       saved: 'Produto guardado',

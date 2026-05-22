@@ -74,6 +74,7 @@ export const en = {
         importJson: 'Import JSON',
         importXlsx: 'Import XLSX',
         createProduct: 'Create product',
+        search: 'Search products',
       },
       createProduct: {
         title: 'Product creation page',
@@ -135,6 +136,7 @@ export const en = {
       product: 'Product',
       description: 'Description',
       price: 'Price',
+      quantity: 'Quantity',
       availability: 'Availability',
       actions: 'Actions',
       edit: 'Edit',
@@ -146,6 +148,7 @@ export const en = {
       titleField: 'Title',
       descriptionField: 'Description',
       priceField: 'Price',
+      quantityField: 'Quantity',
       photoUrlField: 'Photo URL',
       uploadPhoto: 'Upload photo',
       saved: 'Product saved',

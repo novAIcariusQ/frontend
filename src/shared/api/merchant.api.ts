@@ -35,7 +35,13 @@ export const merchantApi = {
   updateShop(shopId: string, payload: ShopFormValues) {
     return apiClient.put<Shop>(`/merchant/shops/${shopId}`, payload).then(response => response.data)
   },
-  getProducts() {
+  getProducts(shopId?: string, params?: MerchantListParams) {
+    if (shopId) {
+      return apiClient
+        .get<Product[] | MerchantListResponse<Product>>(`/merchant/shops/${shopId}/products`, { params })
+        .then(response => response.data)
+    }
+
     return apiClient.get<Product[]>('/merchant/products').then(response => response.data)
   },
   createProduct(payload: ProductFormValues) {
