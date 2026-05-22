@@ -22,8 +22,14 @@ export const en = {
   login: {
     title: 'Merchant access',
     subtitle: 'Sign in to manage shops, products, imports, and orders.',
+    signInTitle: 'Sign in',
+    signInSubtitle: 'Access your merchant workspace.',
+    signUpTitle: 'Sign up',
+    signUpSubtitle: 'Create a merchant account to manage shops.',
     email: 'Email',
     password: 'Password',
+    passwordConfirmation: 'Password confirmation',
+    passwordMismatch: 'Passwords do not match',
     name: 'Name',
     remember: 'Keep me signed in',
     signIn: 'Sign in',
@@ -35,6 +41,55 @@ export const en = {
   merchant: {
     title: 'Merchant console',
     subtitle: 'Shop operations workspace',
+    navigation: {
+      home: 'Home',
+      settings: 'Settings',
+    },
+    pages: {
+      landing: {
+        title: 'Merchant landing page',
+        description: 'Search shops, open a shop workspace, or create a new shop.',
+        search: 'Search shops',
+        createShop: 'Create shop',
+      },
+      createShop: {
+        title: 'Create shop page',
+        description: 'Route prepared for logo drop field, name, description, create, and cancel actions.',
+      },
+      shop: {
+        title: 'Shop page',
+        description: 'Route prepared for editable logo, name, description, and navigation to products and orders.',
+        products: 'Products',
+        orders: 'Orders',
+      },
+      productCatalogue: {
+        title: 'Product catalogue',
+        description: 'Route prepared for catalogue cards, JSON/XLSX import, create product, and pagination.',
+        importJson: 'Import JSON',
+        importXlsx: 'Import XLSX',
+        createProduct: 'Create product',
+      },
+      createProduct: {
+        title: 'Product creation page',
+        description: 'Route prepared for image drop, AI description, fields, create more, create, and cancel actions.',
+      },
+      product: {
+        title: 'Product page',
+        description: 'Route prepared for editable product picture, name, cost, quantity, description, and deletion.',
+      },
+      orderCatalogue: {
+        title: 'Order catalogue',
+        description: 'Route prepared for order cards with id, date, total quantity, and pagination.',
+      },
+      order: {
+        title: 'Order page',
+        description: 'Route prepared for ordered products, quantities, final price, status actions, and contact info.',
+      },
+      settings: {
+        title: 'Settings page',
+        description: 'Route prepared for merchant name editing, password change, and logout.',
+      },
+    },
     tabs: {
       overview: 'Overview',
       shop: 'Shop settings',

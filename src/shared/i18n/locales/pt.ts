@@ -22,8 +22,14 @@ export const pt = {
   login: {
     title: 'Acesso do comerciante',
     subtitle: 'Entre para gerir lojas, produtos, importações e encomendas.',
+    signInTitle: 'Entrar',
+    signInSubtitle: 'Aceda ao espaço do comerciante.',
+    signUpTitle: 'Criar conta',
+    signUpSubtitle: 'Crie uma conta de comerciante para gerir lojas.',
     email: 'Email',
     password: 'Palavra-passe',
+    passwordConfirmation: 'Confirmação da palavra-passe',
+    passwordMismatch: 'As palavras-passe não coincidem',
     name: 'Nome',
     remember: 'Manter sessão iniciada',
     signIn: 'Entrar',
@@ -35,6 +41,55 @@ export const pt = {
   merchant: {
     title: 'Consola do comerciante',
     subtitle: 'Espaço de operações da loja',
+    navigation: {
+      home: 'Início',
+      settings: 'Definições',
+    },
+    pages: {
+      landing: {
+        title: 'Página inicial do comerciante',
+        description: 'Pesquisar lojas, abrir o espaço de uma loja ou criar uma nova loja.',
+        search: 'Pesquisar lojas',
+        createShop: 'Criar loja',
+      },
+      createShop: {
+        title: 'Página de criação de loja',
+        description: 'Rota preparada para campo de logótipo, nome, descrição, criação e cancelamento.',
+      },
+      shop: {
+        title: 'Página da loja',
+        description: 'Rota preparada para logótipo, nome, descrição editáveis e navegação para produtos e encomendas.',
+        products: 'Produtos',
+        orders: 'Encomendas',
+      },
+      productCatalogue: {
+        title: 'Catálogo de produtos',
+        description: 'Rota preparada para cartões de catálogo, importação JSON/XLSX, criação de produto e paginação.',
+        importJson: 'Importar JSON',
+        importXlsx: 'Importar XLSX',
+        createProduct: 'Criar produto',
+      },
+      createProduct: {
+        title: 'Página de criação de produto',
+        description: 'Rota preparada para imagem, descrição por IA, campos, criar mais, criação e cancelamento.',
+      },
+      product: {
+        title: 'Página do produto',
+        description: 'Rota preparada para foto, nome, preço, quantidade, descrição editáveis e remoção.',
+      },
+      orderCatalogue: {
+        title: 'Catálogo de encomendas',
+        description: 'Rota preparada para cartões de encomendas com id, data, quantidade total e paginação.',
+      },
+      order: {
+        title: 'Página da encomenda',
+        description: 'Rota preparada para produtos encomendados, quantidades, preço final, estado e contacto.',
+      },
+      settings: {
+        title: 'Página de definições',
+        description: 'Rota preparada para editar nome do comerciante, alterar palavra-passe e terminar sessão.',
+      },
+    },
     tabs: {
       overview: 'Resumo',
       shop: 'Definições da loja',
