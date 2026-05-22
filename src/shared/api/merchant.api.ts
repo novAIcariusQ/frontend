@@ -3,7 +3,25 @@ import type { Product, ProductFormValues } from '@entities/product'
 import type { Shop, ShopFormValues } from '@entities/shop'
 import { apiClient } from './base'
 
+type MerchantListParams = {
+  page?: number
+  limit?: number
+  q?: string
+}
+
+export type MerchantListResponse<T> = {
+  items: T[]
+  page?: number
+  limit?: number
+  total?: number
+}
+
 export const merchantApi = {
+  getShops(params?: MerchantListParams) {
+    return apiClient
+      .get<Shop[] | MerchantListResponse<Shop>>('/merchant/shops', { params })
+      .then(response => response.data)
+  },
   getShop() {
     return apiClient.get<Shop | null>('/merchant/shop').then(response => response.data)
   },

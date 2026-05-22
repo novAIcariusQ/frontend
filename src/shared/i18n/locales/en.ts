@@ -51,10 +51,15 @@ export const en = {
         description: 'Search shops, open a shop workspace, or create a new shop.',
         search: 'Search shops',
         createShop: 'Create shop',
+        page: 'Page',
+        previous: 'Previous page',
+        next: 'Next page',
       },
       createShop: {
         title: 'Create shop page',
         description: 'Route prepared for logo drop field, name, description, create, and cancel actions.',
+        logoDrop: 'Drop a logo image here or click to upload',
+        create: 'Create shop',
       },
       shop: {
         title: 'Shop page',

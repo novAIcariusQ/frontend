@@ -51,10 +51,15 @@ export const pt = {
         description: 'Pesquisar lojas, abrir o espaço de uma loja ou criar uma nova loja.',
         search: 'Pesquisar lojas',
         createShop: 'Criar loja',
+        page: 'Página',
+        previous: 'Página anterior',
+        next: 'Página seguinte',
       },
       createShop: {
         title: 'Página de criação de loja',
         description: 'Rota preparada para campo de logótipo, nome, descrição, criação e cancelamento.',
+        logoDrop: 'Largue uma imagem de logótipo aqui ou clique para carregar',
+        create: 'Criar loja',
       },
       shop: {
         title: 'Página da loja',
