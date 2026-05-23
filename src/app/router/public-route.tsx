@@ -8,7 +8,7 @@ type PublicRouteProps = {
 
 export function PublicRoute({ children }: PublicRouteProps) {
   if (tokenStorage.getToken()) {
-    return <Navigate to="/merchant" replace />
+    return <Navigate to="/merchant/shops" replace />
   }
 
   return children

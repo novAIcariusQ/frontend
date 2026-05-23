@@ -10,7 +10,7 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
   const location = useLocation()
 
   if (!tokenStorage.getToken()) {
-    return <Navigate to="/login" replace state={{ from: location }} />
+    return <Navigate to="/login/sign-in" replace state={{ from: location }} />
   }
 
   return children

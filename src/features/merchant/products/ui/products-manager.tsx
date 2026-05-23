@@ -18,6 +18,7 @@ const emptyForm: ProductFormValues = {
   title: '',
   description: '',
   price: 0,
+  quantity: 0,
   photoUrl: '',
   isAvailable: true,
 }
@@ -46,6 +47,7 @@ export function ProductsManager({
       title: editingProduct.title,
       description: editingProduct.description,
       price: editingProduct.price,
+      quantity: editingProduct.quantity,
       photoUrl: editingProduct.photoUrl ?? '',
       isAvailable: editingProduct.isAvailable,
     })
@@ -199,6 +201,18 @@ export function ProductsManager({
                     step="0.01"
                     value={form.price}
                     onChange={event => setForm(current => ({ ...current, price: Number(event.target.value) }))}
+                    required
+                  />
+                </label>
+                <label className="block text-sm font-medium">
+                  {t('merchant.products.quantityField')}
+                  <input
+                    className="mt-1 w-full rounded-md border border-ink/15 px-3 py-2 outline-none transition focus:border-market"
+                    type="number"
+                    min="0"
+                    step="1"
+                    value={form.quantity}
+                    onChange={event => setForm(current => ({ ...current, quantity: Number(event.target.value) }))}
                     required
                   />
                 </label>
