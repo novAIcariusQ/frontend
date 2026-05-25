@@ -4,6 +4,7 @@ export type Product = {
   title: string
   description: string
   price: number
+  quantity: number
   photoUrl?: string | null
   isAvailable: boolean
   createdAt?: string
@@ -13,6 +14,7 @@ export type ProductFormValues = {
   title: string
   description: string
   price: number
+  quantity: number
   photoUrl?: string
   isAvailable: boolean
 }
