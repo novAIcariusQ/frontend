@@ -1,4 +1,4 @@
-import type { CustomerBasketItem, CustomerProduct } from '@entities/customer'
+import type { CustomerBasketItem, CustomerOrderPayload, CustomerProduct } from '@entities/customer'
 
 const CUSTOMER_BASKET_KEY = 'cebola.customerBasket'
 const CUSTOMER_BASKET_EVENT = 'cebola.customerBasket.updated'
@@ -15,7 +15,8 @@ export function getCustomerBasketItems() {
   }
 
   try {
-    return JSON.parse(stored) as CustomerBasketItem[]
+    const parsed = JSON.parse(stored) as CustomerBasketItem[]
+    return parsed.filter(item => item.shopId && item.productId && item.quantity > 0 && item.availableQuantity > 0)
   } catch {
     return []
   }
@@ -30,6 +31,7 @@ export function setCustomerBasketItems(items: CustomerBasketItem[]) {
 export function clearCustomerBasket() {
   localStorage.removeItem(CUSTOMER_BASKET_KEY)
   notifyCustomerBasketUpdated()
+  return []
 }
 
 export function addCustomerBasketProduct(product: CustomerProduct, quantity = 1) {
@@ -68,12 +70,60 @@ export function updateCustomerBasketItemQuantity(productId: string, quantity: nu
   return setCustomerBasketItems(nextItems)
 }
 
+export function increaseCustomerBasketItem(productId: string) {
+  const item = getCustomerBasketItems().find(basketItem => basketItem.productId === productId)
+
+  if (!item) {
+    return getCustomerBasketItems()
+  }
+
+  return updateCustomerBasketItemQuantity(productId, item.quantity + 1)
+}
+
+export function decreaseCustomerBasketItem(productId: string) {
+  const item = getCustomerBasketItems().find(basketItem => basketItem.productId === productId)
+
+  if (!item) {
+    return getCustomerBasketItems()
+  }
+
+  if (item.quantity <= 1) {
+    return removeCustomerBasketItem(productId)
+  }
+
+  return updateCustomerBasketItemQuantity(productId, item.quantity - 1)
+}
+
 export function removeCustomerBasketItem(productId: string) {
   return setCustomerBasketItems(getCustomerBasketItems().filter(item => item.productId !== productId))
 }
 
 export function getCustomerBasketTotal(items = getCustomerBasketItems()) {
   return items.reduce((total, item) => total + item.price * item.quantity, 0)
+}
+
+export function getCustomerBasketQuantity(items = getCustomerBasketItems()) {
+  return items.reduce((total, item) => total + item.quantity, 0)
+}
+
+export function getCustomerBasketShopId(items = getCustomerBasketItems()) {
+  return items[0]?.shopId ?? null
+}
+
+export function createCustomerOrderPayload(items = getCustomerBasketItems()): CustomerOrderPayload | null {
+  const shopId = getCustomerBasketShopId(items)
+
+  if (!shopId || items.length === 0) {
+    return null
+  }
+
+  return {
+    shopId,
+    items: items.map(item => ({
+      productId: item.productId,
+      quantity: item.quantity,
+    })),
+  }
 }
 
 export { CUSTOMER_BASKET_EVENT }

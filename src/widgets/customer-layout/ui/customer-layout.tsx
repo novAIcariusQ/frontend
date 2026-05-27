@@ -2,18 +2,16 @@ import { useEffect, useState } from 'react'
 import { Home, ShoppingBasket } from 'lucide-react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { CUSTOMER_BASKET_EVENT, getCustomerBasketItems } from '@shared/lib'
+import { CUSTOMER_BASKET_EVENT, getCustomerBasketQuantity } from '@shared/lib'
 import { LanguageSwitcher } from '@widgets/language-switcher'
 
 export function CustomerLayout() {
   const { t } = useTranslation()
-  const [basketItemsCount, setBasketItemsCount] = useState(() =>
-    getCustomerBasketItems().reduce((total, item) => total + item.quantity, 0),
-  )
+  const [basketItemsCount, setBasketItemsCount] = useState(() => getCustomerBasketQuantity())
 
   useEffect(() => {
     const updateBasketItemsCount = () => {
-      setBasketItemsCount(getCustomerBasketItems().reduce((total, item) => total + item.quantity, 0))
+      setBasketItemsCount(getCustomerBasketQuantity())
     }
 
     window.addEventListener(CUSTOMER_BASKET_EVENT, updateBasketItemsCount)
