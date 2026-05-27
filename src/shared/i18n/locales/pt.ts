@@ -76,6 +76,16 @@ export const pt = {
         summary: 'Resumo',
         buy: 'Comprar produtos',
       },
+      checkout: {
+        eyebrow: 'Pagamento seguro',
+        title: 'A preparar pagamento',
+        description: 'Estamos a criar a encomenda e a abrir a página de pagamento Stripe. Os dados do cartão ficam no Stripe.',
+        creating: 'A criar encomenda e ligação de pagamento...',
+        empty: 'O carrinho está vazio. Adicione produtos antes do pagamento.',
+        missingPaymentLink: 'A encomenda foi criada, mas o backend não devolveu uma ligação de pagamento.',
+        error: 'Não foi possível criar a encomenda. Tente novamente quando o checkout do backend estiver disponível.',
+        openPayment: 'Abrir página de pagamento',
+      },
     },
     basket: {
       add: 'Adicionar',

@@ -76,6 +76,16 @@ export const en = {
         summary: 'Summary',
         buy: 'Buy products',
       },
+      checkout: {
+        eyebrow: 'Secure checkout',
+        title: 'Preparing payment',
+        description: 'We are creating your order and opening the Stripe payment page. Card data is handled by Stripe.',
+        creating: 'Creating order and payment link...',
+        empty: 'Basket is empty. Add products before checkout.',
+        missingPaymentLink: 'Order was created, but backend did not return a payment link.',
+        error: 'Could not create order. Try again after backend checkout is available.',
+        openPayment: 'Open payment page',
+      },
     },
     basket: {
       add: 'Add',
