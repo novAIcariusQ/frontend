@@ -84,13 +84,14 @@ export function MerchantShopPage() {
       setShop(savedShop)
       setDraftShop(savedShop)
       upsertDemoMerchantShop(savedShop)
+      setMessage(t('merchant.shop.saved'))
     } catch {
       setShop(nextShop)
       setDraftShop(nextShop)
       upsertDemoMerchantShop(nextShop)
+      setMessage(t('common.error'))
     } finally {
       setEditingField(null)
-      setMessage(t('merchant.shop.saved'))
       setIsSaving(false)
     }
   }

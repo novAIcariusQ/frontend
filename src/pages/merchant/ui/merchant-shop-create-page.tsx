@@ -62,8 +62,8 @@ export function MerchantShopCreatePage() {
       upsertDemoMerchantShop(shop)
       navigate(`/merchant/shops/${shop.id}`)
     } catch {
+      setMessage(t('common.error'))
       upsertDemoMerchantShop(fallbackShop)
-      navigate(`/merchant/shops/${fallbackShop.id}`)
     } finally {
       setIsSubmitting(false)
     }

@@ -92,13 +92,14 @@ export function MerchantProductPage() {
       setProduct(savedProduct)
       setDraftProduct(savedProduct)
       upsertDemoMerchantProduct(savedProduct)
+      setMessage(t('merchant.products.saved'))
     } catch {
       setProduct(normalizedProduct)
       setDraftProduct(normalizedProduct)
       upsertDemoMerchantProduct(normalizedProduct)
+      setMessage(t('common.error'))
     } finally {
       setEditingField(null)
-      setMessage(t('merchant.products.saved'))
       setIsSaving(false)
     }
   }

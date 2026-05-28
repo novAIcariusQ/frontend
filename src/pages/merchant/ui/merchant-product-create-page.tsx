@@ -108,17 +108,15 @@ export function MerchantProductCreatePage() {
 
       navigate(`/merchant/shops/${shopId}/products/${product.id}`)
     } catch {
+      setMessage(t('common.error'))
       upsertDemoMerchantProduct(fallbackProduct)
 
       if (createMore) {
         setForm(emptyForm)
         setImageFile(null)
         setImagePreview('')
-        setMessage(t('merchant.products.saved'))
         return
       }
-
-      navigate(`/merchant/shops/${shopId}/products/${fallbackProduct.id}`)
     } finally {
       setIsSubmitting(false)
     }

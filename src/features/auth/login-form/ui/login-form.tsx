@@ -3,7 +3,7 @@ import { KeyRound, LogIn, UserPlus } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 import { useNavigate } from 'react-router-dom'
 import { authApi } from '@shared/api'
-import { tokenStorage } from '@shared/lib/token-storage'
+import { setDemoUser, tokenStorage } from '@shared/lib'
 import { LanguageSwitcher } from '@widgets/language-switcher'
 
 type LoginFormProps = {
@@ -38,6 +38,7 @@ export function LoginForm({ mode = 'sign-in' }: LoginFormProps) {
         : await authApi.login({ email, password })
 
       tokenStorage.setToken(response.token)
+      setDemoUser(response.user)
       navigate('/merchant/shops')
     } catch {
       setError(t('common.error'))
