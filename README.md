@@ -53,6 +53,12 @@ http://localhost:3001
 
 The proxy is configured in `vite.config.ts`.
 
+## Run via docker compose
+
+```bash
+docker compose up
+```
+
 ## Build
 
 ```bash
